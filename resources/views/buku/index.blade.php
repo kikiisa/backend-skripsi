@@ -1,6 +1,6 @@
 @extends('layouts.master', [
     'judul' => 'Daftar Skripsi',
-])
+]);
 @section('content')
     <section class="section">
         <div class="card">
@@ -31,7 +31,7 @@
                                         @method('DELETE')
                                         @csrf
                                         <button class="btn btn-danger"
-                                            onclick="return confirm('Menghapus Data buku ? Menghapus Data Transaksi Lainya')"><i
+                                            onclick="return confirm('Menghapus Data buku ? Menghapus Data Transaksi Lainya Beserta Kategori buku akan di pindah ke kategori lainya')"><i
                                                 class="bi bi-trash"></i></button>
                                         <a href="{{ Route('buku.edit', $item->uuid) }}" class="btn btn-warning"><i
                                                 class="bi bi-pen"></i></a>
@@ -95,7 +95,7 @@
                             <textarea name="deskripsi" id="deskripsi" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="gambar">Cover Buku</label>
+                            <label for="gambar">File Skripsi / Jurnal</label>
                             <input required type="file" name="cover" class="form-control-file" id="gambar">
                         </div>
                     </div>

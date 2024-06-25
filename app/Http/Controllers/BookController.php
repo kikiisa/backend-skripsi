@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Kategori;
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Ramsey\Uuid\Uuid;
@@ -179,13 +180,21 @@ class BookController extends Controller
     public function destroy($id)
     {
         $data = Book::find($id);
-        File::delete($data->cover);
-        $data->delete();
-        if($data)
+        $users = Peminjaman::where("buku_id",$data->id);
+        $users->delete();
+        if($users)
         {
-            return redirect()->route('buku.index')->with('success','Data Berhasil');   
+            File::delete($data->cover);
+            $data->delete();
+            if($data)
+            {
+                return redirect()->route('buku.index')->with('success','Data Berhasil');   
+            }else{
+                return redirect()->route('buku.index')->with('error','Data Gagal Disimpan');
+            }
         }else{
-            return redirect()->route('buku.index')->with('error','Data Gagal Disimpan');
+            return redirect()->route('buku.index')->with('error','Terjadi Kesalhan');
         }
+
     }
 }
