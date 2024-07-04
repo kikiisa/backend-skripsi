@@ -50,7 +50,7 @@ class BookController extends Controller
             'tahun' => 'required',
             'deskripsi' => 'required',
           
-            'cover' => 'required|mimes:jpeg,jpg,png,webp|max:2048',
+            'cover' => 'required|mimes:pdf|max:2048',
         ],[
             'id_buku.required' => 'Nomor Buku Wajib Diisi',
             'id_buku.unique' => 'Nomor Buku Tidak Boleh Sama',
