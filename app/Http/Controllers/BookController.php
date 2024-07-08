@@ -49,7 +49,6 @@ class BookController extends Controller
             'pengarang' => 'required',
             'tahun' => 'required',
             'deskripsi' => 'required',
-          
             'cover' => 'required|mimes:pdf|max:2048',
         ],[
             'id_buku.required' => 'Nomor Buku Wajib Diisi',
@@ -122,7 +121,7 @@ class BookController extends Controller
                 'tahun' => 'required',
              
                 'deskripsi' => 'required',
-                'cover' => 'required|mimes:pdf|max:2048',
+                'cover' => 'required|mimes:pdf',
             ]);
             File::delete($data->cover);
             $file = $request->file('cover');
