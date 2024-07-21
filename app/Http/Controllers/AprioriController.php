@@ -42,7 +42,7 @@ class AprioriController extends Controller
             // Menggabungkan data dari setiap grup
             return $groupedItems;
         })->values()->toArray();
-        $url = "http://localhost:3000";
+        $url = "https://service.firmaniphone.cloud/";
         $datas = [
             'data' => $dataItem,
         ];
