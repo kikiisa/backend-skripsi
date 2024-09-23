@@ -17,14 +17,7 @@ class AprioriController extends Controller
         $this->apriori =  new AprioriService();
     }
     public function index()
-    {
-        $data_item = array(
-            [1,3,4,5,6],
-            [2,3,1,1,1],
-            [2,1,2,2,1],
-            [5,3,1,1,1],
-        );
-        
+    {   
         // mengurutkan buku
         $data = Peminjaman::with("book")->orderBy("pinjam", "asc")->get();
         // mengelompokkan buku berdasarkan tanggal
